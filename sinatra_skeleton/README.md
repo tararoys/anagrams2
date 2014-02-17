@@ -9,20 +9,27 @@ Understand the difference between the various HTTP methods (GET, POST, etc.). Ga
 
 - [X] First, download and decompress the [sinatra application skeleton here](http://cl.ly/2n3D2V0R0L2f) .
 Second, we need to store the dictionary of words from which to construct anagrams in the database. We'll do it with a words table.
-That means we'll need a Word model and a create_words migration. Y ou can generate them by running the following from the command line inside the application root directory:
+- [X] That means we'll need a Word model and a create_words migration. Y ou can generate them by running the following from the command line inside the application root directory:
+        _Danny and I drilled creating blank words model and migration 5 times each_
 
 ```
 $ rake generate:model NAME=Word
 $ rake generate:migration NAME=create_words
 ```
 These are custom rake tasks. Look in the Rakefile to see how they work, if you're curious.
+
 ###Import a Dictionary
-OS X comes with its own big-ass dictionary. Try running this from the command line: ```
+OS X comes with its own big-ass dictionary. Try running this from the command line:
+
+```
 $ cat /usr/share/dict/words # outputs the contents of the file to STDOUT $ wc -w /usr/share/dict/words # counts the number of words in the file
 ```
+
 Copy /usr/share/dict/words into your application directory. Edit db/seeds.rb to read the dictionary file in and create one entry in the
 words table per word in the file.
+
 We're copying the file into our application directory because in the world where we deploy the application to a server or someone else installs the application on their computer we want each instance to have the same dictionary, not whatever dictionary happens to be on the machine.
+
 ###Build The Form
 Before we dive into constructing anagrams, let's get the form working. Start the application by running
 ```
