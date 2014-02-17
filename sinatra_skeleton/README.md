@@ -3,11 +3,14 @@ We're going to write a simple web application that accepts a word via an HTML fo
 ##Learning Goals
 Become more familiar with how HTML forms work
 Understand the difference between the various HTTP methods (GET, POST, etc.). Gain familiarity with the core patterns of MVC on the web.
+
 ##Objectives
 ###Create Models & Migrations
-First, download and decompress the [sinatra application skeleton here](http://cl.ly/2n3D2V0R0L2f) .
+
+- [X] First, download and decompress the [sinatra application skeleton here](http://cl.ly/2n3D2V0R0L2f) .
 Second, we need to store the dictionary of words from which to construct anagrams in the database. We'll do it with a words table.
 That means we'll need a Word model and a create_words migration. Y ou can generate them by running the following from the command line inside the application root directory:
+
 ```
 $ rake generate:model NAME=Word
 $ rake generate:migration NAME=create_words
