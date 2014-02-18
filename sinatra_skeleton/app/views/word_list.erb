@@ -1,5 +1,10 @@
 <ul>
   <% @array.each do |element| %>
-  <li><%= element %></li>
+    <li>
+      <%= element %>
+    </li>
+  <% end %>
+  <% if @array.empty? %>
+    There are no anagrams for <%= @user_word %>!
   <% end %>
 </ul>
