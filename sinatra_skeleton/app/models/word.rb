@@ -1,7 +1,7 @@
 class Word < ActiveRecord::Base
   def self.anagram(user_word)
     all.each_with_object([]) do |word, anagrams|
-      if word.word.chars.sort == user_word.chars.sort
+      if word.sorted_word == user_word.chars.sort.join
         anagrams << word.word
       end
     end
