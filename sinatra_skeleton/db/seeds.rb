@@ -1,7 +1,9 @@
+CONN = ActiveRecord::Base.connection
 
-#text = File.open(APP_ROOT + "db/test_dictionary.txt")
- text = File.open(APP_ROOT.join("db", 'test_dictionary.txt'))
-# text = File.open(APP_ROOT.join("db", 'test_dictionary.txt')).read
-text.each_line do |line|
-  Word.create(word: line.chomp, sorted_word: line.chomp.downcase.chars.sort.join)
+inserts = []
+File.readlines(APP_ROOT.join("db", 'words')).each do |word|
+  inserts.push "('#{word.strip}', '#{word.strip.chars.sort.join}')"
 end
+
+sql = "INSERT INTO words (word, sorted_word) VALUES #{inserts.join(", ")}"
+CONN.execute sql
