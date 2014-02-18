@@ -6,7 +6,7 @@ end
 post '/' do
   @user_word = params[:word].chomp
 
-  @array = Word.anagram(@user_word)
+  @array = Word.anagram(@user_word.chars.sort.join)
 
   erb :word_list
 end
